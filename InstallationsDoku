@@ -1,0 +1,61 @@
+Installation zum Nutzen der Kinect2 auf Ubuntu 16.04(PC-Pool Muren):
+*********************************************
+*****Installation von LIBFREENECT2
+*****Alle Angaben nach bestem Wissen
+*****Keine Anspruch auf Vollstaendigkeit
+*****
+*****Bitte lesen vor dem Ausfuehren
+*********************************************
+
+Um die Installation durchzuführen benötigt man root-Rechte.
+
+Die Kamera muss in ein USB3 Port gesteckt werden.
+
+Zu erst muss libfreenect2 installiert werden, zu finden unter:
+
+https://github.com/OpenKinect/libfreenect2
+
+Dort der Anleitung unter den Punkt Linux folgen.
+Auf Muren wurde das Repo in den folgenden Pfad kopiert:
+
+/local/user/projektH/libfreenect2
+
+WICHTIG: Die Pathvariablen muessen maneull gesetzt werden.
+	 Eine Moeglichkeit ist es diese in die ~/.bashrc einzutragen.
+	 Sodass in der bashrc die folgenden Eintraege eingetragen werden muessen.
+	 ------------------------------------------------------------------------
+	 export LD_LIBRARY_PATH=$HOME/freenect2/lib:$LD_LIBRARY_PATH
+	 export LIBFREENECT2_INSTALL_PREFIX=$HOME/freenect2
+	 ------------------------------------------------------------------------
+	 Beide sind unter der Annahme, dass LibFreenect2 in das HOME-Verzeichniss
+	 gebaut worden ist.
+	 " cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2  "
+	 Falls ein anderer Pfad fuer die Installation angegeben worden ist,
+	 muessen die Angaben in der .bashrc dementsprechend angepasst werden.
+	 Dies ist der Pfad in dem die Binary, auf welche spaeter verwiesen wird,
+	 abgelegt wird.
+	 " sudo make install " sollte MIT sudo ausgefuehrt werden.	
+	 
+
+Die Funktionalität, nach Installation, kann unter dem folgenden Programm geprüft werden:
+
+/local/user/projektH/libfreenect2/build/bin/Protonect
+
+Dabei wird die aktuelle Aufnahme der Kamera in einem separaten Fenster angezeigt mit vier Abschnitten:
+1 Aufnahme der RGB Kamera
+2 Aufnahme der Infrarot Sensoren
+3 Tiefeninformationen aus den Infrarotaufnahmen
+4 Mischung aus Tiefeninformationen und RBG
+
+Damit sollte die Installation der Treiber abgeschlossen sein.
+
+*********************************************
+*****Installation von PYLIBFREENECT2
+*********************************************
+Auf Muren wird PIP über PIP2 angesprochen.
+
+Zu erst muss sichergestellt werden, dass Python installiert ist, welches über den Befehl
+python --version
+gemacht werden kann.-> Auf Muren ist es Python 2.7.12
+
+Um die Bibliothek zu installieren benötigt man PIP.
