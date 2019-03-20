@@ -57,5 +57,88 @@ Auf Muren wird PIP über PIP2 angesprochen.
 Zu erst muss sichergestellt werden, dass Python installiert ist, welches über den Befehl
 python --version
 gemacht werden kann.-> Auf Muren ist es Python 2.7.12
+Um LibFreenect2 in Python zu verwenden, wird das Interface PyLibFreenect2 benoetigt.
+Der folgende Link fuehrt zur Doku und Installationsanleitung.
 
-Um die Bibliothek zu installieren benötigt man PIP.
+http://r9y9.github.io/pylibfreenect2/stable/
+
+Sicherstellen, ob die Paketanforderungen erfuellt sind, und ggf. installieren.
+libfreenect2 (0.2.0 or later)--> vorheriger Schritt.(Protonect testen!!!)
+python (2.7, 3.4 or 3.5) --> python --version
+numpy --> pip list | grep numpy              falls nicht, pip install numpy
+cython --> pip list | grep Cython            falls nicht, pip install Cython
+
+Nach Anleitung:
+pip install pylibfreenect2
+
+
+Um die Funktionalitaet zu testen kann das Repository kopiert werden.
+
+cd /DER_PFAD_DEINER_WAHL
+git clone https://github.com/r9y9/pylibfreenect2.git
+
+In den Ordner wechseln.
+http://r9y9.github.io/pylibfreenect2/stable/dev.html?highlight=test#
+Um den zu testen muss der folgende Befehl ausgefuehrt werden:
+
+nosetests -v -w tests/
+
+ACHTUNG: python ./tests/test_libfreenect2.py liefert keine Ergebnisse oder falsche!
+Die Kinect sollte angeschlossen sein.
+Der Output am Ende sieht bei erfolgreichem Abschluss wie folgt aus:
+
+.
+.
+.
+[Info] [Freenect2DeviceImpl] closing...
+[Info] [Freenect2DeviceImpl] already closed, doing nothing
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.716s
+
+OK
+
+Die dort angezeigten Fehler bearbeiten, IDEs zeigen aus Erfahrung keine
+Information zur Fehlerbeseitigung.
+
+pip show pylibfreenect2      ggf um zu wissen wohin das Packet installiert worden ist.
+
+Alternative Installation:
+Lokal wurde das Repository kopiert und das dazu gehoerige Script ausgefuehrt:
+python setup.py install
+
+Danach nosetests ausfuehren in dem Ordner.
+Ggf. muss ein Link erstellt werden, analog zum folgenden:
+
+ln -s ~/anaconda2/lib/python2.7/site-packages/pylibfreenect2/libfreenect2.so ~pylibfreenect2/pylibfreenect2/pylibfreenect2.so
+
+Hier wurde das Repo in das HOME-Verzeichniss kopiert.
+Falls die Tests erfolgreich durchlaufen hat man auch PyLibFreenect2 erfolgreich installiert.
+Im folgenden wird die Library dazu verwendet um im die Hardware anzusteuern und die Aufnahmen zu speichertn.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
