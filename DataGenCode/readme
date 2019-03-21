@@ -1,0 +1,27 @@
+*********************************
+*****This file is shall contain
+*****resources and links which
+*****should be read to understand
+*********************************
+
+Refence implentation was build with win10+winSDK_KinectV2+PyKinect+pygame
+This package is using ubuntu16.04+libfreenect2+pylibfreenect2+pygame
+
+A standalone testfile is provided under a separated folder.
+Run it via python filename.py
+It should store one single image using the named environment.
+
+
+To give some references for information:
+
+https://github.com/r9y9/pylibfreenect2/blob/master/examples/multiframe_listener.py
+
+http://r9y9.github.io/pylibfreenect2/stable/api.html#frame-listeners
+
+https://github.com/Kinect/PyKinect2/blob/master/pykinect2/PyKinectRuntime.py
+
+http://archives.seul.org/pygame/users/Apr-2008/msg00218.html
+
+https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.ndarray.ctypes.html
+
+https://stackoverflow.com/questions/41168396/how-to-create-a-pygame-surface-from-a-numpy-array-of-float32

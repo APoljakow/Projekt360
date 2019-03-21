@@ -108,7 +108,7 @@ Lokal wurde das Repository kopiert und das dazu gehoerige Script ausgefuehrt:
 python setup.py install
 
 Danach nosetests ausfuehren in dem Ordner.
-Ggf. muss ein Link erstellt werden, analog zum folgenden:
+Ggf. muss ein Link erstellt werden, analog zum Folgenden:
 
 ln -s ~/anaconda2/lib/python2.7/site-packages/pylibfreenect2/libfreenect2.so ~pylibfreenect2/pylibfreenect2/pylibfreenect2.so
 
@@ -119,6 +119,15 @@ Im folgenden wird die Library dazu verwendet um im die Hardware anzusteuern und 
 
 
 
+Interessant sind die folgenden Links:
+https://github.com/r9y9/pylibfreenect2/issues/9
+---> espacially search for ImportError: libfreenect2.so.0.2: cannot open shared object file: No such file or directory
+
+https://github.com/OpenKinect/libfreenect2/blob/master/README.md#linux
+
+https://github.com/remexre/pyfreenect2/issues/11
+
+http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html
 
 
 
@@ -138,6 +147,88 @@ Im folgenden wird die Library dazu verwendet um im die Hardware anzusteuern und 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+X250:~$ ldd ~/anaconda2/lib/python2.7/site-packages/pylibfreenect2/libfreenect2.so 
+	linux-vdso.so.1 =>  (0x00007ffd6dfcc000)
+
+	*******************************************************************
+	libfreenect2.so.0.2 => /home/user/freenect2/lib/libfreenect2.so.0.2 (0x00007f4ea0a6c000)
+	*******************************************************************
+
+	libpython2.7.so.1.0 => /home/user/anaconda2/lib/libpython2.7.so.1.0 (0x00007f4ea088c000)
+	libstdc++.so.6 => /home/user/anaconda2/lib/libstdc++.so.6 (0x00007f4ea0d7f000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f4ea0583000)
+	libgcc_s.so.1 => /home/user/anaconda2/lib/libgcc_s.so.1 (0x00007f4ea0d4d000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f4ea0366000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f4e9ff9c000)
+	libusb-1.0.so.0 => /lib/x86_64-linux-gnu/libusb-1.0.so.0 (0x00007f4e9fd84000)
+	libturbojpeg.so.0 => /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0 (0x00007f4e9fb23000)
+	libglfw.so.3 => /usr/lib/x86_64-linux-gnu/libglfw.so.3 (0x00007f4e9f90d000)
+	libGL.so.1 => /usr/lib/x86_64-linux-gnu/mesa/libGL.so.1 (0x00007f4e9f699000)
+	libOpenCL.so.1 => /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 (0x00007f4e9f48e000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f4e9f28a000)
+	libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x00007f4e9f087000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f4ea0cd1000)
+	libudev.so.1 => /lib/x86_64-linux-gnu/libudev.so.1 (0x00007f4ea0d29000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f4e9ee7f000)
+	libX11.so.6 => /usr/lib/x86_64-linux-gnu/libX11.so.6 (0x00007f4e9eb45000)
+	libXrandr.so.2 => /usr/lib/x86_64-linux-gnu/libXrandr.so.2 (0x00007f4e9e93a000)
+	libXinerama.so.1 => /usr/lib/x86_64-linux-gnu/libXinerama.so.1 (0x00007f4e9e737000)
+	libXi.so.6 => /usr/lib/x86_64-linux-gnu/libXi.so.6 (0x00007f4e9e527000)
+	libXxf86vm.so.1 => /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1 (0x00007f4e9e321000)
+	libXcursor.so.1 => /usr/lib/x86_64-linux-gnu/libXcursor.so.1 (0x00007f4e9e117000)
+	libz.so.1 => /home/user/anaconda2/lib/libz.so.1 (0x00007f4ea0d07000)
+	libexpat.so.1 => /home/user/anaconda2/lib/libexpat.so.1 (0x00007f4e9e0e3000)
+	libxcb-dri3.so.0 => /home/user/anaconda2/lib/libxcb-dri3.so.0 (0x00007f4e9dede000)
+	libxcb-present.so.0 => /home/user/anaconda2/lib/libxcb-present.so.0 (0x00007f4e9dcdb000)
+	libxcb-sync.so.1 => /home/user/anaconda2/lib/libxcb-sync.so.1 (0x00007f4e9dad4000)
+	libxshmfence.so.1 => /usr/lib/x86_64-linux-gnu/libxshmfence.so.1 (0x00007f4e9d8d1000)
+	libglapi.so.0 => /usr/lib/x86_64-linux-gnu/libglapi.so.0 (0x00007f4e9d6a0000)
+	libXext.so.6 => /usr/lib/x86_64-linux-gnu/libXext.so.6 (0x00007f4e9d48e000)
+	libXdamage.so.1 => /usr/lib/x86_64-linux-gnu/libXdamage.so.1 (0x00007f4e9d28b000)
+	libXfixes.so.3 => /usr/lib/x86_64-linux-gnu/libXfixes.so.3 (0x00007f4e9d085000)
+	libX11-xcb.so.1 => /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1 (0x00007f4e9ce83000)
+	libxcb-glx.so.0 => /home/user/anaconda2/lib/libxcb-glx.so.0 (0x00007f4e9cc67000)
+	libxcb-dri2.so.0 => /home/user/anaconda2/lib/libxcb-dri2.so.0 (0x00007f4e9ca62000)
+	libxcb.so.1 => /home/user/anaconda2/lib/libxcb.so.1 (0x00007f4e9c839000)
+	libdrm.so.2 => /usr/lib/x86_64-linux-gnu/libdrm.so.2 (0x00007f4e9c627000)
+	libXrender.so.1 => /usr/lib/x86_64-linux-gnu/libXrender.so.1 (0x00007f4e9c41d000)
+	libXau.so.6 => /usr/lib/x86_64-linux-gnu/libXau.so.6 (0x00007f4e9c219000)
+
+
+
+X250:~$ history | grep -i ln
+  	361  ln -s ~/freenect2/lib/libfreenect2.so.0.2.0 ./libfreenect2.so
+  	397  ln -s ~/anaconda2/lib/python2.7/site-packages/pylibfreenect2/libfreenect2.so ./libfreenect2.so
+  	461  git push origin --delete featureNeuralNetwork
+  	616  history | grep -i ln
+X250:~$ 
+
+
+X250:~/pylibfreenect2/pylibfreenect2$ ls -al
+	total 1076
+	drwxrwxr-x  3 user user    4096 Mär 20 14:19 .
+	drwxrwxr-x 10 user user    4096 Mär 20 12:17 ..
+	-rw-rw-r--  1 user user    2342 Mär 20 12:16 __init__.py
+	-rw-rw-r--  1 user user    3007 Mär 20 14:13 __init__.pyc
+	drwxrwxr-x  2 user user    4096 Mär 20 12:16 libfreenect2
+	-rw-rw-r--  1 user user 1023218 Mär 20 12:17 libfreenect2.cpp
+	-rw-rw-r--  1 user user   38222 Mär 20 12:16 libfreenect2.pyx
+	lrwxrwxrwx  1 user user      79 Mär 20 14:19 libfreenect2.so -> /home/user/anaconda2/lib/python2.7/site-packages/pylibfreenect2/libfreenect2.so
 
 
 
