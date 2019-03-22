@@ -22,6 +22,7 @@ class controlThread(threading.Thread):
 
         while True:
 
+            # --- control of connection with Pi
             s = client.connect()
             print "Connected to PI\n"
 

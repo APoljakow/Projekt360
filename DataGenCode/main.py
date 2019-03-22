@@ -20,8 +20,9 @@ cameraThread = ThreadingCamera.cameraThread("Camera")
 cameraThread.start()
 controlThread.start()
 
-''' for testing 
+# for testing 
 # To get one image every time calling
+'''
 time.sleep(3)
 for i in range(5):
     get_image()
